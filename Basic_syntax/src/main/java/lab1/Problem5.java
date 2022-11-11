@@ -6,6 +6,8 @@ public class Problem5 {
 
     public static boolean isGeometricProgression(String numbers) {
 
+        if (numbers.trim().length()==0 || numbers.length() == 1) return false;
+         
         String [] str = numbers.split(",");
         int[] a = Arrays.stream(str)
                 .mapToInt(Integer::parseInt)
