@@ -6,37 +6,30 @@ public class Problem2 {
 
     public static int[] segregateEvenAndOddNumbers(int[] array) {
 
-        StringBuilder even = new StringBuilder();
-        StringBuilder odd = new StringBuilder();
+         int[] a = new int[array.length];
+        int index = 0;
         for (int tmp: array) {
             if (tmp < 0) {
                 return null;
             }}
-
-            Arrays.stream(array).forEach(e -> {
-                if (e % 2 == 0) {
-                    even.append(e).append(" ");
-                }
-                if (e % 2 != 0) {
-                    odd.append(e).append(" ");
-                }
-            });
-            String str = even.toString().concat(odd.toString());
-
-            System.out.println("Четный массив: " + even.toString());
-            System.out.println("Нечетный массив: " + odd.toString());
-
-            String[] strArray = null;
-            strArray = str.split(" ");
-            for (int i = 0; i < strArray.length; i++) {
-                System.out.print(strArray[i]);
+        for (int i : array) {
+            if (i % 2 == 0) {
+                a[index] = i;
+                index++;
             }
-
-            int[] values = Arrays.stream(strArray)
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
-            System.out.println("\n" + Arrays.toString(values));
-            return values;
+        }
+        for (int i : array) {
+            if (i % 2 != 0) {
+                a[index] = i;
+                index++;
+            }
+        }
+        for (int i = 0; i < array.length; i++)
+        {
+            System.out.print(a[i] + " ");
+        }
+        System.out.print("\n");
+        return a;
 
     }
 }
