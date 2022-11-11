@@ -13,12 +13,13 @@ public class Problem5 {
         Arrays.sort(a);
 
         int r=a[1]/a[0];
-        for(int i=0;i<a.length-1;i++)
+        if (Math.abs(a[1])>Math.abs(a[0])){
+        for(int i=2;i<a.length-1;i++)
         {
-            if((a[i+1]/a[i])!=r)
-                return false;
+            if((a[i+1]/a[i])==r)
+                return true;
         }
-        return true;
-
+    }
+        return false;
     }
 }
